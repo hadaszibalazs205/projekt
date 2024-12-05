@@ -1,0 +1,60 @@
+1. A Hálózat Felépítése
+A hálózat három alhálózatra van felosztva, mindegyiknek különböző funkciói és igényei vannak.
+Zöld alhálózat: Adminisztrációs Részleg
+Funkció:
+Az adminisztrációs részleg felelős az iskola mindennapi működéséhez szükséges adatok kezeléséért, tárolásáért és védelméért. Ide tartoznak az irodai dolgozók számítógépei, a központi szerver, valamint az iskolai rendszerhez kapcsolódó egyéb adminisztratív eszközök.
+Eszközök:
+Switch: 2960-24TT kapcsoló köti össze az adminisztrációs számítógépeket (PC0, PC1, stb.) és a központi szervert (Server0).
+IP-címtartomány: 192.168.30.1/24
+Példák a használatra:
+Az igazgató hozzáférhet az összes diák jegyéhez, órarendjéhez és más fontos dokumentumokhoz.
+Az adminisztráció e-mailben tart kapcsolatot a tanárokkal és a szülőkkel.
+A szerver biztonsági mentéseket készít a fontos adatokról, biztosítva ezzel az iskola működését.
+Lila alhálózat: Informatika Osztálytermek
+Funkció:
+Ez az alhálózat kifejezetten az informatika órákhoz van kialakítva. Itt a diákok hálózatkezelést tanulnak, programoznak, és szimulációkat végeznek a Cisco Packet Tracer segítségével.
+
+
+Eszközök:
+Switch: 2960-24TT kapcsoló köti össze az informatika osztálytermek számítógépeit (PC8–PC11).
+IP-címtartomány: 192.168.30.10/24
+Példák a használatra:
+A diákok gyakorlati feladatokat végeznek, például IP-címek kiosztását, alhálózati maszk használatát, és hálózati problémák szimulálását.
+A tanárok közvetlenül elérhetik az adminisztrációs szervert, például az osztálynapló feltöltésére.
+Kék alhálózat: Tanári és Diákosztálytermi Hálózat
+Funkció:
+Ez a szegmens biztosítja a tanárok és diákok mindennapi hálózati szükségleteit. Az osztálytermek számítógépei az iskolai szerverhez, valamint az internethez csatlakoznak.
+Eszközök:
+Switch: 2960-24TT kapcsoló kezeli a forgalmat az osztálytermek számítógépei (PC4–PC7) között.
+IP-címtartomány: 192.168.40.20/24
+Példák a használatra:
+A tanárok osztálytermi eszközök segítségével vetíthetik a tananyagot a diákoknak.
+A diákok kutatásokat végeznek az interneten, illetve hasznos digitális anyagokhoz férhetnek hozzá.
+Az osztálytermi gépek automatikusan frissítéseket töltenek le a központi szerverről, biztosítva ezzel a legfrissebb szoftvereket és biztonsági javításokat.
+2. A Hálózat Működése
+Kapcsolók szerepe:
+Minden kapcsoló (Switch) az adott alhálózaton belül biztosítja az eszközök közötti gyors adatkommunikációt. Az alhálózatok közötti forgalmat a routerek irányítják. A kapcsolók felelősek a hálózati forgalom szabályozásáért, gyors adatátvitelt biztosítva az eszközök között.
+
+
+Routerek szerepe:
+A három router biztosítja az alhálózatok közötti adatátvitelt, valamint az internetkapcsolatot. Az alhálózatok közötti adatcsomagokat IP-címek alapján továbbítják. A routerek redundáns kapcsolatokat hoznak létre, így ha egy útvonal meghibásodik, a rendszer automatikusan egy másik útvonalat választ, biztosítva a folyamatos adatforgalmat.
+
+IP-címzés és Forgalomirányítás:
+Az alhálózatok IP-címek segítségével azonosítják az eszközöket. A routerek irányítják a forgalmat, biztosítva, hogy például egy tanári számítógépről az adatcsomagok elérjék az adminisztrációs szervert. Az alhálózatok közötti adatátvitel dinamikusan zajlik, és minden egyes eszközhöz pontos IP-címek tartoznak.
+Biztonság és Adatvédelem:
+Az adminisztrációs hálózatot tűzfal védi, amely biztosítja, hogy a diákok ne férhessenek hozzá az érzékeny adatokhoz. Az alhálózatok közötti forgalmat szigorú szabályok szerint korlátozzák, megelőzve a nem kívánt hozzáférést és támadásokat.
+Internetelérés:
+Az iskolai hálózat egy központi internetkapcsolaton keresztül biztosítja az online hozzáférést minden alhálózaton belül. Ez lehetővé teszi a tanárok, diákok és adminisztráció számára az internetes kutatásokat, az oktatási anyagok letöltését és az online kommunikációt.
+3. Fejlesztési Lehetőségek és Jövőbeli Kihívások
+Skálázhatóság:
+A jelenlegi infrastruktúra jól megfelel a meglévő létszám és igények kezelésére, de a jövőben, ha az iskola létszáma nő vagy új oktatási eszközök (pl. digitális táblák, IoT-eszközök) bevezetésére kerül sor, a hálózatot bővíteni kell. Ehhez további kapcsolók, routerek és szerverek telepítésére lehet szükség. A tervezett bővítésekhez figyelembe kell venni az alhálózatok terhelhetőségét és a rendelkezésre álló IP-címtartományokat.
+Rendszeres Karbantartás és Frissítések:
+A rendszer stabilitásának fenntartása érdekében fontos, hogy a hálózati eszközöket (routerek, kapcsolók, szerverek) rendszeresen frissítsük. A legújabb firmware verziók telepítése segít abban, hogy a hálózat biztonságos maradjon, és megfeleljen a legújabb technológiai követelményeknek.
+
+
+Hálózati Biztonság Fejlesztése:
+A jövőben érdemes további biztonsági intézkedéseket bevezetni, mint például VPN kapcsolatokat, amelyek lehetővé teszik az iskolai hálózathoz való távoli hozzáférést biztonságos módon. Ezen kívül a tűzfalak konfigurációját is folyamatosan ellenőrizni kell, hogy az iskolai hálózat védve legyen a külső támadásokkal szemben.
+Redundancia és Hibaelhárítás:
+A hálózat kialakításakor különös figyelmet kell fordítani a redundanciára, hogy ha egyes eszközök meghibásodnak, a rendszer zökkenőmentesen működhessen tovább. Az alhálózatok közötti adatátvitelhez használt útvonalak biztosítják a folyamatos működést még akkor is, ha egy router vagy kapcsoló leáll.
+Összegzés
+A „Zöld”, „Lila” és „Kék” alhálózatok egy modern, megbízható és biztonságos infrastruktúrát biztosítanak az iskola számára. A hálózat támogatja az oktatást, az adminisztrációt és a tanári munkát, miközben a legmodernebb technológiai megoldásokat alkalmazza. A jövőbeni fejlesztések és a skálázhatóság biztosítják, hogy az iskolai hálózat hosszú távon képes legyen kezelni a növekvő igényeket és a folyamatosan változó technológiai környezetet.
